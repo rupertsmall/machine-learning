@@ -26,13 +26,16 @@
 
 <p><img src="https://cloud.githubusercontent.com/assets/7373621/8417723/38990686-1ea6-11e5-9398-a787e6e21f7f.jpg" alt="data clusters"></p>
 
-<p>This is just randomly generated synthetic data, generated using <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/create_k_cluster.m">create_k_cluster.m</a>. Although its simple to see using the human eye where the clusters are, the goal is to teach the computer how to identify any clusters that may be presented to it without the aid of a human being. To begin we need the computer to understand how to generate some guesses for where the clusters lie: how to algorithmically select a point from each cluster. One possibility is <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> which places a rectangular grid over the data and keeps only those points on the grid which are close to the real cluster data. The data is randomly generated so the specific plots will look different for you, but may look something like this:</p>
+<p>This is just randomly generated synthetic data generated using <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/create_k_cluster.m">create_k_cluster.m</a>. Although its simple to see using the human eye where the clusters are, the goal is to teach the computer how to identify any clusters that may be presented to it without the aid of a human being. To begin we need the computer to understand how to generate some guesses for where the clusters lie: how to algorithmically select a point from each cluster? One possibility is <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> which places a rectangular grid over the data and keeps only those points on the grid which are close to the real cluster data (plotted above). The data is randomly generated so the specific plots will look different for you. An example looks like this:</p>
 
 <p><img src="https://cloud.githubusercontent.com/assets/7373621/8417724/38a2d58a-1ea6-11e5-88cc-8ade65a6171d.jpg" alt="clusters with seed guesses"></p>
 
-<p>Here the big black dots are the computer's guesses for where the clusters are. We want the number of guesses to be slightly more than K to ensure the computer makes at least one correct guess for each cluster. As you can see there's alot of white space where the algorithm (rightly) doesn't make any guesses, because there are no real data points there.</p>
+<p>Here the big black dots are the computer's guesses for where the clusters are and the small coloured dots are the actual data clusters. We ultimately want the computer to identify the clusters by drawing circles around them for example. We want the number of initial guesses to be slightly more than K=5 to ensure the computer makes at least one correct guess for each cluster. As you can see there's alot of white space where the algorithm (rightly) doesn't make any guesses, because there are no real data points there.</p>
 
-<p>The functions <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/create_k_cluster.m">create_k_cluster.m</a> and <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> are called as shown in <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means_plot.m">k_means_plot.m</a>. Notice in <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> there are no <em>for</em> loops! Optimising the distance between guesses and the real cluster data is all done using matrix algebra which Matlab/Octave do extremely fast:</p>
+<h3>
+<a id="running-the-code" class="anchor" href="#running-the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the Code</h3>
+
+<p>The functions <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/create_k_cluster.m">create_k_cluster.m</a> and <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> are called by <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means_plot.m">k_means_plot.m</a>. Notice in <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> there are no <em>for</em> loops ! Optimising the distance between guesses and the real cluster data is all done using matrix algebra which Matlab/Octave does extremely fast:</p>
 
 <pre><code>[x_candidates y_candidates] = meshgrid(xmin:delta_x:xmax, ymin:delta_y:ymax);
 x_candidates = reshape(x_candidates, NN+2*N+1,1);
@@ -52,7 +55,7 @@ measure = reshape(measure, length(x_candidates), length(X));
 [closest index] = min(measure);
 </code></pre>
 
-<p>Another example of using matrix operations instead of <em>for</em> loops can be seen in <a href="https://github.com/rupertsmall/distance-heat-maps/blob/master/get_min_perp.m">in this program</a> for calculating the minimum perpendicular distance between all points in a plane and a curve passing through the plane.</p>
+<p>Another example of using matrix operations instead of <em>for</em> loops can be seen in <a href="https://github.com/rupertsmall/distance-heat-maps/blob/master/get_min_perp.m">this program</a> for calculating the minimum perpendicular distance between all points in a plane and a curve passing through the plane (see <a href="http://rupertsmall.github.io/distance-heat-maps/">here</a> for plots)</p>
 
 <p>..work in progress</p>
 
