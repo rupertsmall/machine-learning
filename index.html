@@ -68,7 +68,7 @@ measure = reshape(measure, length(x_candidates), length(X));
 
 <p><img src="https://cloud.githubusercontent.com/assets/7373621/8439799/3377c00a-1f66-11e5-9a74-5a8fe94401db.jpg" alt="K-means K=5, N=7"></p>
 
-<p>where the <em>yellow stars</em> indicate where the algorithm thinks the <em>centre of mass of the clusters</em> are. But the algorithm has assumed that <em>too many</em> centres of mass exist - we know there are only five ! (and there are more than 5 stars for sure). To fix this we need to reduce N in <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means.m">k_means.m</a>. Setting K=5, N=2 for example gives the following seed guesses</p>
+<p>where the <strong>yellow stars</strong> indicate where the algorithm thinks the <strong>centre of mass of the clusters</strong> are. But the algorithm has assumed that <em>too many</em> centres of mass exist - we know there are only five ! (and there are more than 5 stars for sure). To fix this we need to reduce N in <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means.m">k_means.m</a>. Setting K=5, N=2 for example gives the following seed guesses</p>
 
 <p><img src="https://cloud.githubusercontent.com/assets/7373621/8439791/2a15dfb0-1f66-11e5-92b9-a4823ec9a397.jpg" alt="Seed guesses with K=5, N=2"></p>
 
@@ -76,7 +76,7 @@ measure = reshape(measure, length(x_candidates), length(X));
 
 <p><img src="https://cloud.githubusercontent.com/assets/7373621/8439798/33759e9c-1f66-11e5-8abf-8da9ed033304.jpg" alt="K-means K=5, N=2"></p>
 
-<p>So the algorithm found the centres of mass, but the seed guesses for lower N were <em>much</em> worse than for higher N. In fact, the algorithm was very lucky to find the correct centres of mass for each cluster given how bad the initial guesses were (and if you run the algorithm a few times you will see that there's not always such a happy ending). So we can see that <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means.m">k_means.m</a> does it's job fine, but that the initial seed guesses provided by <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> can be problematic.</p>
+<p>So the algorithm found the centres of mass (= <strong>yellow stars</strong>) but the seed guesses for lower N were <em>much</em> worse than for higher N. In fact, the algorithm was very lucky to find the correct centres of mass for each cluster given how bad the initial guesses were (and if you run the algorithm a few times you will see that there's not always such a happy ending). So we can see that <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means.m">k_means.m</a> does it's job fine, but that the initial seed guesses provided by <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> can be problematic.</p>
 
 <p>Can you improve the code of <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/seed_k_means.m">seed_k_means.m</a> to provide better seed guesses?</p>
 
