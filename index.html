@@ -113,12 +113,12 @@ end
 
 <p><img src="https://cloud.githubusercontent.com/assets/7373621/8486089/38d06724-20fa-11e5-99db-4e4943a6e9d1.jpg" alt="circular cluster data"></p>
 
-<p>The algorithm is, more or less, trying to replicate the coefficients of the equation of the circle (x-1)<strong>2 + (y-3)</strong>2 = 9 so that an optimisation process leading to the correct result would yield</p>
+<p>The algorithm is, more or less, trying to replicate the coefficients of the equation of the circle (x-1)^2 + (y-3)^2 = 9 so that an optimisation process leading to the correct result would yield</p>
 
 <pre><code>theta = 1   -2   -6   0   1   1
 </code></pre>
 
-<p>where -2 is the coefficient of x, -6 the coefficient of y, the coefficient of x<em>y, 1 the coefficient of x</em><em>2 and 1 the coefficient of y</em>*2. You can play around with the algorithm by altering its learning rate (alpha), by changing the size of the training data (N) or by changing the point at which the algorithm quits (epsilon). When I run the algorithm I get</p>
+<p>where -2 is the coefficient of x, -6 the coefficient of y, the coefficient of x*y, 1 the coefficient of x^2 and 1 the coefficient of y^2. You can play around with the algorithm by altering its learning rate (alpha), by changing the size of the training data (N) or by changing the point at which the algorithm quits (epsilon). When I run the algorithm I get</p>
 
 <pre><code>theta = 1.0000   -2.0397   -6.1035   -0.0031    1.0267    1.0175
 </code></pre>
