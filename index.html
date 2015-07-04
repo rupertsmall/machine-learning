@@ -22,8 +22,9 @@
       <h5>
 <a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h5>
 
-<p><a href="#Kmeans">K-means Clustering</a>
-<a href="#logisticRegression">Logistic Regression</a></p>
+<p><a href="#Kmeans">K-means Clustering</a></p>
+
+<p><a href="#logisticRegression">Logistic Regression</a></p>
 
 <hr>
 
@@ -67,8 +68,8 @@ measure = reshape(measure, length(x_candidates), length(X));
 
 <p>Another example of using matrix operations instead of <em>for</em> loops can be seen in <a href="https://github.com/rupertsmall/distance-heat-maps/blob/master/get_min_perp.m">this program</a> for calculating the minimum perpendicular distance between all points in a plane and a curve passing through the plane (see <a href="http://rupertsmall.github.io/distance-heat-maps/">here</a> for plots).</p>
 
-<h2>
-<a id="k-means-clustering-1" class="anchor" href="#k-means-clustering-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>K-means Clustering</h2>
+<h3>
+<a id="quality-of-results" class="anchor" href="#quality-of-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quality of Results</h3>
 
 <p>Now that we have figured out a way to generate the seed guesses for the K-means algorithm we can feed this into the actual algorithm, <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means.m">k_means.m</a>. Note the above examples had K=5 and N=10, so we had many guesses (31 in fact) for the number of clusters, much more than 5. If we do this however and run <a href="https://github.com/rupertsmall/machine-learning/blob/master/K-means-clustering/k_means.m">k_means.m</a> we would get something like the following for the seed guesses</p>
 
@@ -112,12 +113,12 @@ end
 
 <p><img src="https://cloud.githubusercontent.com/assets/7373621/8486089/38d06724-20fa-11e5-99db-4e4943a6e9d1.jpg" alt="circular cluster data"></p>
 
-<p>The algorithm is, more or less, trying to replicate the coefficients of the equation of the circle <em>(x-1)<strong>2 + (y-3)</strong>2 = 9</em> so that an optimisation process leading to the correct result would yield</p>
+<p>The algorithm is, more or less, trying to replicate the coefficients of the equation of the circle (x-1)<strong>2 + (y-3)</strong>2 = 9 so that an optimisation process leading to the correct result would yield</p>
 
 <pre><code>theta = 1   -2   -6   0   1   1
 </code></pre>
 
-<p>where -2 is the coefficient of <em>x</em>, -6 the coefficient of y, 0 the coefficient of <em>x*y</em>, 1 the coefficient of <em>x**2</em> and 1 the coefficient of <em>y**2</em>. You can play around with the algorithm by altering its learning rate (alpha), by changing the size of the training data (N) or by changing the point at which the algorithm quits (epsilon). When I run the algorithm I get</p>
+<p>where -2 is the coefficient of x, -6 the coefficient of y, the coefficient of x<em>y, 1 the coefficient of x</em><em>2 and 1 the coefficient of y</em>*2. You can play around with the algorithm by altering its learning rate (alpha), by changing the size of the training data (N) or by changing the point at which the algorithm quits (epsilon). When I run the algorithm I get</p>
 
 <pre><code>theta = 1.0000   -2.0397   -6.1035   -0.0031    1.0267    1.0175
 </code></pre>
