@@ -100,7 +100,7 @@ measure = reshape(measure, length(x_candidates), length(X));
 
 <p>Another form of clustering used in machine learning is an IN/OUT form of clustering known as logistic regression. This uses an indicator function (usually the <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a>) to determine whether a data-point is within a certain set (1) or outside it (0). There are plenty ways to use logistic regression models in The Real World (e.g. spam filters), but it's also good to understand them because they form, albeit in a multi-dimensional way, the building blocks of neural networks: in neural networks there is an IN/OUT decision being made at <em>every single node in the network</em>.</p>
 
-<p>As with all algorithms it's really good to try code them using as few <em>for</em> loops as possible, instead using matrix multiplication. Here's the crucial "machine learning" part of <a href="https://github.com/rupertsmall/machine-learning/blob/master/logistic-regression/logistic_function.m">logistic_function.m</a></p>
+<p>As with all algorithms it's really good to try code them using as few <em>for</em> loops as possible, instead using matrix multiplication. Here's the crucial "machine learning" part of <a href="https://github.com/rupertsmall/machine-learning/blob/master/Logistic-Regression/logistic_function.m">logistic_function.m</a></p>
 
 <pre><code>while error &gt; epsilon
     saved_theta = theta;
@@ -123,7 +123,7 @@ end
 <pre><code>theta = 1.0000   -2.0397   -6.1035   -0.0031    1.0267    1.0175
 </code></pre>
 
-<p>which is fairly close to the correct answer. You can check the predictions theta would make on a new data set by running it through <a href="https://github.com/rupertsmall/machine-learning/blob/master/logistic-regression/check_logistic_output.m">check_logistic_output.m</a> which should yield a plot much like the green circle above (if your logistic regression model is correct that is!). What changes would you make to the algorithm to get even closer to the correct value of theta?</p>
+<p>which is fairly close to the correct answer. You can check the predictions theta would make on a new data set by running it through <a href="https://github.com/rupertsmall/machine-learning/blob/master/Logistic-Regression/check_logistic_output.m">check_logistic_output.m</a> which should yield a plot much like the green circle above (if your logistic regression model is correct that is!). What changes would you make to the algorithm to get even closer to the correct value of theta?</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/rupertsmall/machine-learning">Machine-learning</a> is maintained by <a href="https://github.com/rupertsmall">rupertsmall</a>.</span>
