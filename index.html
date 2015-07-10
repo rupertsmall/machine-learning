@@ -26,6 +26,8 @@
 
 <p><a href="#logisticRegression">Logistic Regression</a></p>
 
+<p><a href="#neuralNetworks">Neural Networks</a></p>
+
 <hr>
 
 <p><a name="Kmeans"></a></p>
@@ -124,6 +126,24 @@ end
 </code></pre>
 
 <p>which is fairly close to the correct answer. You can check the predictions theta would make on a new data set by running it through <a href="https://github.com/rupertsmall/machine-learning/blob/master/Logistic-Regression/check_logistic_output.m">check_logistic_output.m</a> which should yield a plot much like the green circle above (if your logistic regression model is correct that is!). What changes would you make to the algorithm to get even closer to the correct value of theta?</p>
+
+<p><a name="neuralNetworks"></a></p>
+
+<h2>
+<a id="neural-networks" class="anchor" href="#neural-networks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neural Networks</h2>
+
+<p>Neural networks are one of the most powerful type of machine learning model. The basic template is a vector of input nodes + several inner layers (also vectors of nodes) + an output vector of nodes. Each node in one layer is connected to every other node in the next layer through the the same logistic function used in the <a href="#logisticRegression">Logistic Regression</a> section above. The problem then becomes one of optimising the values of the parameter <strong>theta</strong> (see code snippet in previous section) which is now a matrix, in contrast with the simpler logistic regression algorithm. This must be done for <em>each layer of the network</em> and the mathematical structure of the problem requires the optimisation to be carried out backwards(!), starting from the output vector. When training the network you have some training data in the form of input vectors and the corresponding output vectors. First you must</p>
+
+<ol>
+<li>
+<a href="https://github.com/rupertsmall/machine-learning/blob/master/Neural-Networks/create_MEGA_THETA.m">initialise a guess</a> for <em>theta</em> in each layer. Then for each pair of input/output vectors you need to</li>
+<li>
+<a href="https://github.com/rupertsmall/machine-learning/blob/master/Neural-Networks/neural_forward.m">run forward propagation</a> by giving the network your input vector and saving the output</li>
+<li>then you compare the network's output vector with the true output vector and <a href="https://github.com/rupertsmall/machine-learning/blob/master/Neural-Networks/back_propagation.m">run back propagation</a>
+</li>
+</ol>
+
+<p>TBC</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/rupertsmall/machine-learning">Machine-learning</a> is maintained by <a href="https://github.com/rupertsmall">rupertsmall</a>.</span>
